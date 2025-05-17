@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechGizmo - Landing Page</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <h1>TechGizmo</h1>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button id="dark-mode-toggle">🌙</button>
+  </header>
+
+  <section class="hero">
+    <h2>Meet the Future of Smart Gadgets</h2>
+    <p>Experience innovation with the new TechGizmo X2.</p>
+    <img src="Untitled.jpeg" alt="TechGizmo product" class="product-img" />
+    <a href="#pricing" class="btn">Buy Now</a>
+  </section>
+
+  <section id="features" class="features animate">
+    <h3>Top Features</h3>
+    <ul>
+      <li>🔋 Long Battery Life</li>
+      <li>📱 Seamless Connectivity</li>
+      <li>🎧 Crystal Clear Audio</li>
+    </ul>
+  </section>
+
+  <section id="pricing" class="pricing animate">
+    <h3>Pricing Plans</h3>
+    <div class="card">
+      <div>
+        <h4>Basic</h4>
+        <p>$199</p>
+      </div>
+      <div>
+        <h4>Pro</h4>
+        <p>$299</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact animate">
+    <h3>Contact Us</h3>
+    <form action="https://formspree.io/f/your-form-id" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 TechGizmo Inc.</p>
+  </footer>
+
+  <script>
+    // Scroll animation
+    const animateItems = document.querySelectorAll('.animate');
+    window.addEventListener('scroll', () => {
+      animateItems.forEach(item => {
+        if (item.getBoundingClientRect().top < window.innerHeight - 50) {
+          item.classList.add('visible');
+        }
+      });
+    });
+
+    // Dark mode toggle
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    if (localStorage.getItem('darkMode') === 'enabled') {
+      document.body.classList.add('dark-mode');
+    }
+
+    darkModeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      if (document.body.classList.contains('dark-mode')) {
+        localStorage.setItem('darkMode', 'enabled');
+      } else {
+        localStorage.removeItem('darkMode');
+      }
+    });
+  </script>
+</body>
+</html>
